@@ -1,0 +1,10 @@
+<p>Enter your message for the Rec</p>
+
+<%= form_for @movie_rec {action: update}%>
+
+<%= f.label(:message) %>
+<%= f.text.area(:message) %>
+
+<%= f.submit 'Enter Message' %>
+
+<% end %>

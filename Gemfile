@@ -47,3 +47,5 @@ group :development do
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers', require: false
 end
+
+gem 'rails_12factor', group: :production

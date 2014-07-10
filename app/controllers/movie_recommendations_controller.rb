@@ -25,9 +25,10 @@ class MovieRecommendationsController < ApplicationController
     else
       render(:index)
     end
+  end
 
-    # this is where we set up recommendation
-    # this is a post request
+  def message
+    @movie_rec = Movie.Recommendation.find(params[:id])
   end
   #
   # def new

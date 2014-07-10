@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'movie_recommendations/:user_id/search'  =>  'movie_recommendations#search', :as => :search_movies
   get 'movie_recommendations/:user_id/results'  =>  'movie_recommendations#results', :as => :movies_results
+  get 'movie_recommendations/:id/message'      =>  'movie_recommendations#message', :as => :movie_rec_message
 
   get 'book_recommendations/:user_id/search'  =>  'book_recommendations#search', :as => :search_books
   get 'book_recommendations/:user_id/results'  => 'book_recommendations#results', :as => :books_results
