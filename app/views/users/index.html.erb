@@ -1,0 +1,14 @@
+<h2>All Users</h2>
+<% @users.each do |user| %>
+  <ul>
+    <li><%= user.username %></li>
+    <li><%= user.first_name %> <%= user.last_name %></li>
+    <li><%= user.email %></li>
+    <li><%= user.password_digest %></li>
+  </ul>
+  <p>
+  <%= link_to "Recommend Book to #{user.first_name}", "/book_recommendations/#{user.id}/search" %> |
+  <%= link_to "Recommend Movie to #{user.first_name}", "/movie_recommendations/#{user.id}/search" %>
+  </p>
+<hr>
+<% end %>

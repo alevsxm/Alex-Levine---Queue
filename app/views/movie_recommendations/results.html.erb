@@ -1,0 +1,27 @@
+<% @results.each do |result| %>
+<div>
+<img src="<%= result[:img_url] %>">
+<ul>
+<li><%= result[:title] %></li>
+<li>Director: <%= result[:director] %></li>
+<li>Cast: <%= result[:actors] %></li>
+<li><%= result[:year_released] %></li>
+<li>Summary: <%= result[:plot_summary] %></li>
+<li>IMDB Rating: <%= result[:rating] %></li>
+<li>Type: <%= result[:media_type].capitalize %></li>
+</ul>
+<p><%= form_for(@movie) do |f| %>
+    <%= f.hidden_field :title, :value => result[:title] %>
+    <%= f.hidden_field :director, :value => result[:director] %>
+    <%= f.hidden_field :actors, :value => result[:actors] %>
+    <%= f.hidden_field :year_released, :value => result[:year_released] %>
+    <%= f.hidden_field :plot_summary, :value => result[:plot_summary] %>
+    <%= f.hidden_field :rating, :value => result[:rating] %>
+    <%= f.hidden_field :media_type, :value => result[:media_type] %>
+    <%= f.hidden_field :recommendee_id, :value => @user.id %>
+    <%= submit_tag("Recommend Movie") %>
+  <% end %>
+</p>
+<hr>
+</div>
+<% end %>

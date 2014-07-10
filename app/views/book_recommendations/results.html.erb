@@ -1,0 +1,22 @@
+<% @results.each do |result| %>
+  <img src= "<%= result[:img_url] %>">
+  <ul>
+    <li><%= result[:title] %></li>
+    <li>Author: <%= result[:author] %></li>
+    <li>Published: <%= result[:year_published] %></li>
+    <li>Summary: <%= result[:plot_summary] %></li>
+    <li>Google Rating: <%= result[:rating] %></li>
+  </ul>
+  <%= form_for(@book) do |f| %>
+    <%= f.hidden_field :title, :value => result[:title] %>
+    <%= f.hidden_field :author, :value => result[:author] %>
+    <%= f.hidden_field :year_published, :value => result[:year_published] %>
+    <%= f.hidden_field :img_url, :value => result[:img_url] %>
+    <%= f.hidden_field :plot_summary, :value => result[:plot_summary] %>
+    <%= f.hidden_field :rating, :value => result[:rating] %>
+    <!-- Insert Hidden Field That Automatically Enters User as Recommendee
+    Insert Hidden Field THat Automatically Enters You as Recommendor -->
+    <%= submit_tag("Recommend This Book!") %>
+  <% end %>
+  <hr>
+<% end %>

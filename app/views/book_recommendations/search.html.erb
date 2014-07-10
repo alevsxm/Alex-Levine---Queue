@@ -1,0 +1,6 @@
+<h2>Search for Books to Recommend</h2>
+
+<%= form_tag(book_recommendations_results_path) do |f| %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Search") %>
+<% end %>

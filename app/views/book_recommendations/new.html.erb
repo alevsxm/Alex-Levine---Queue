@@ -1,0 +1,52 @@
+<h2>New Book Rec</h2>
+
+<%= form_for @book_recommendation do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div>
+    <%= f.label :year_published %>
+    <%= f.text_field :year_published %>
+  </div>
+
+  <div>
+    <%= f.label :plot_summary %>
+    <%= f.text_area :plot_summary %>
+  </div>
+
+  <div>
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+  </div>
+
+  <div>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </div>
+
+  <div>
+    <%= f.label :recommendee_id %>
+    <%= f.select :recommendee_id, options_for_select(@users.map {|user| [user.username, user.id]}) %>
+  </div>
+
+  <div>
+    <%= f.label :recommendor_id %>
+    <%= f.select :recommendor_id, options_for_select(@users.map {|user| [user.username, user.id]}) %>
+  </div>
+
+  <div>
+    <%= f.label :message %>
+    <%= f.text_area :message %>
+  </div>
+
+  <div>
+    <%= f.submit 'Submit Rec' %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h2>Recommendation</h2>
+<img src="<%= @movie_recommendation.img_url %>">
+<ul>
+  <li><%= @movie_recommendation.title %></li>
+  <li><%= @movie_recommendation.director %></li>
+  <li><%= @movie_recommendation.actors %></li>
+  <li><%= @movie_recommendation.year_released %></li>
+  <li><%= @movie_recommendation.plot_summary %></li>
+  <li><%= @movie_recommendation.media_type.capitalize %></li>
+  <li><%= @movie_recommendation.rating %></li>
+  <li>Recommended By: <%= @recommendor.first_name %>
+    <%= @recommendor.last_name %></li>
+  <li>Recommended To: <%= @recommendee.first_name %>
+    <%= @recommendee.last_name %></li>
+  <li><%= @movie_recommendation.message %></li>
+</ul>
+<p><%= link_to 'Delete Rec', movie_recommendation_path(@movie_recommendation) %></p>

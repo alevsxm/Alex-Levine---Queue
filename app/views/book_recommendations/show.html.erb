@@ -1,0 +1,15 @@
+<h2>Recommendation</h2>
+<img src="<%= @book_recommendation.img_url %>">
+<ul>
+  <li><%= @book_recommendation.title %></li>
+  <li><%= @book_recommendation.author %></li>
+  <li><%= @book_recommendation.year_published %></li>
+  <li><%= @book_recommendation.plot_summary %></li>
+  <li><%= @book_recommendation.rating %></li>
+  <li><%= @book_recommendation.message %></li>
+  <li>Recommended By: <%= @recommendor.first_name %>
+    <%= @recommendor.last_name %></li>
+  <li>Recommended To: <%= @recommendee.first_name %>
+    <%= @recommendee.last_name %></li>
+</ul>
+<p><%= link_to 'Delete Rec', book_recommendation_path(@book_recommendation) %></p>

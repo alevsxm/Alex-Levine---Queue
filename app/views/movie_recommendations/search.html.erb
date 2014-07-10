@@ -1,0 +1,6 @@
+<h2>Search for Movies to Recommend</h2>
+
+<%= form_tag(movies_results_path, method: :get) do |f| %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Search") %>
+<% end %>

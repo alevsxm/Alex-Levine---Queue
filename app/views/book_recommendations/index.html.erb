@@ -1,0 +1,16 @@
+<h2>All Book Recommendations</h2>
+<% @book_recommendations.each do |rec| %>
+<img src="<%= rec.img_url %>">
+<ul>
+  <li><%= rec.title %></li>
+  <li><%= rec.author %></li>
+  <li><%= rec.year_published %></li>
+  <li><%= rec.plot_summary %></li>
+  <li><%= rec.rating %></li>
+  <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
+  <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
+  <li><%= rec.message %></li>
+</ul>
+<p><%= link_to 'Delete Rec', book_recommendation_path(rec) %></p>
+<hr>
+<% end %>
