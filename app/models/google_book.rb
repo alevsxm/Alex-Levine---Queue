@@ -1,6 +1,6 @@
 class GoogleBook
   def self.search(term)
-    search_url = "https://www.googleapis.com/books/v1/volumes?q=#{term}&key=AIzaSyAJFKn6MVdIrs-1q86x-miMDuTw13r-44s"
+    search_url = "https://www.googleapis.com/books/v1/volumes?q=#{term}&key=AIzaSyDqIQLD2MaNV4xvozWF7Ty8dgUuee_Ba5k"
     api_response = HTTParty.get(URI.escape(search_url))
     search_results = api_response["items"]
 

@@ -19,10 +19,15 @@ class MovieRecommendationsController < ApplicationController
 
   def create
     movie = MovieRecommendation.create(movie_recommendation_params)
-    movie.update(recommender_id: current_user.id)
+    movie.update(recommendor_id: current_user.id)
+    if movie.save
+      redirect_to movie_recommendations_path
+    else
+      render(:index)
+    end
+
     # this is where we set up recommendation
     # this is a post request
-    binding.pry
   end
   #
   # def new
@@ -59,10 +64,11 @@ class MovieRecommendationsController < ApplicationController
   #   end
   # end
   #
-  # def destroy
-  #   @movie_recommendation = MovieRecommendation.find(params[:id])
-  #   @movie_recommendation.destroy
-  # end
+  def destroy
+    @movie_recommendation = MovieRecommendation.find(params[:id])
+    @movie_recommendation.destroy
+      redirect_to movie_recommendations_path
+  end
 
   def movie_recommendation_params
     params.require(:movie_recommendation).permit(:title, :director, :actors,

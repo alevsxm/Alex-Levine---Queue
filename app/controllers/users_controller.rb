@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :authenticate, except: [:new, :create]
+  before_action :authenticate, except: [:new, :create]
 
   def index
     @users = User.all
@@ -41,6 +41,8 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    session[:current_user] = nil
+    redirect_to users_path
   end
 
   def user_params

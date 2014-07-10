@@ -14,8 +14,7 @@
     <%= f.hidden_field :img_url, :value => result[:img_url] %>
     <%= f.hidden_field :plot_summary, :value => result[:plot_summary] %>
     <%= f.hidden_field :rating, :value => result[:rating] %>
-    <!-- Insert Hidden Field That Automatically Enters User as Recommendee
-    Insert Hidden Field THat Automatically Enters You as Recommendor -->
+    <%= f.hidden_field :recommendee_id, :value => @user.id %>
     <%= submit_tag("Recommend This Book!") %>
   <% end %>
   <hr>
