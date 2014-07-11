@@ -1,0 +1,23 @@
+<h2><%= @user.first_name %>'s Sent Book Recs</h2>
+
+<hr>
+<% @books.each do |rec| %>
+  <img src="<%= rec.img_url %>">
+  <ul>
+    <li><%= rec.title %></li>
+    <li>Author: <%= rec.author %></li>
+    <li><%= rec.year_published %></li>
+    <li>Summary: <%= rec.plot_summary %></li>
+    <li>Google Books Rating: <%= rec.rating %></li>
+    <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
+    <li>Finished? <%= rec.finished.to_s.capitalize %></li>
+    <% if rec.finished == true %>
+      <li>Finished On: <%= rec.created_at.to_s(:long) %></li>
+      <li>YOUR FRIEND rated this book a <%= rec.user_rating %></li>
+    <% else %>
+      <li>Recommended On <%= rec.created_at.to_s(:long) %></li>
+    <% end %>
+  </ul>
+  <%= rec.message %>
+  <hr>
+<% end %>

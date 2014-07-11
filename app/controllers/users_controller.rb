@@ -38,6 +38,11 @@ class UsersController < ApplicationController
     @movies = MovieRecommendation.where(recommendee_id: @user.id)
   end
 
+  def sent_movie_recommendations
+    @user = User.find(params[:id])
+    @movies = MovieRecommendation.where(recommendor_id: @user.id)
+  end
+
   def book_recommendations
     @user = User.find(params[:id])
     @books = BookRecommendation.where(recommendee_id: @user.id)
@@ -46,6 +51,11 @@ class UsersController < ApplicationController
   def completed_book_recommendations
     @user = User.find(params[:id])
     @books = BookRecommendation.where(recommendee_id: @user.id)
+  end
+
+  def sent_book_recommendations
+    @user = User.find(params[:id])
+    @books = BookRecommendation.where(recommendor_id: @user.id)
   end
 
   def update

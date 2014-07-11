@@ -1,16 +1,15 @@
 <h2><%= @user.first_name %>'s Book Recs</h2>
 
 <% @books.each do |rec| %>
-  <% if rec.finished == FALSE %>
+  <% if rec.finished == false %>
     <img src="<%= rec.img_url %>">
     <ul>
       <li><%= rec.title %></li>
-      <li><%= rec.author %></li>
+      <li>Author: <%= rec.author %></li>
       <li><%= rec.year_published %></li>
       <li><%= rec.plot_summary %></li>
-      <li><%= rec.rating %></li>
+      <li>Google Book Rating: <%= rec.rating %></li>
       <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
-      <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
       <li>Recommended On: <%= rec.created_at.to_s(:long) %></li>
     </ul>
     <%= rec.message %>

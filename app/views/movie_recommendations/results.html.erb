@@ -1,3 +1,10 @@
+<h3>Search Again</h3>
+<%= form_tag(movies_results_path, method: :get) do |f| %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<h3>Results</h3>
 <% @results.each do |result| %>
 <div>
 <img src="<%= result[:img_url] %>">

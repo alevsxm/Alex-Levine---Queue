@@ -2,19 +2,19 @@
 
 <hr>
 <% @books.each do |rec| %>
-  <% if rec.finished == TRUE %>
-  <img src="<%= rec.img_url %>">
-  <ul>
-    <li><%= rec.title %></li>
-    <li><%= rec.author %></li>
-    <li><%= rec.year_published %></li>
-    <li><%= rec.plot_summary %></li>
-    <li><%= rec.rating %></li>
-    <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
-    <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
-    <li>Finished On: <%= rec.created_at.to_s(:long) %></li>
-    <li>You rated this book a<%= rec.user_rating %></li>
-  </ul>
-  <%= rec.message %>
-  <hr>
+  <% if rec.finished == true %>
+    <img src="<%= rec.img_url %>">
+    <ul>
+      <li><%= rec.title %></li>
+      <li><%= rec.author %></li>
+      <li><%= rec.year_published %></li>
+      <li><%= rec.plot_summary %></li>
+      <li><%= rec.rating %></li>
+      <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
+      <li>Finished On: <%= rec.created_at.to_s(:long) %></li>
+      <li>You rated this book a <%= rec.user_rating %></li>
+    </ul>
+    <%= rec.message %>
+    <hr>
+  <% end %>
 <% end %>

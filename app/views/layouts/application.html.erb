@@ -9,26 +9,35 @@
 <body>
 
 <% if current_user %>
-<p>
-  Welcome, <%= current_user.first_name %> |
-  <%= link_to 'Log Out', logout_path %> |
-  <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-</p>
-<div>
-  <%= link_to 'Pending Movie Recs', user_movie_recs_path(current_user) %> |
-  <%= link_to 'Completed Movie Recs', completed_user_movie_recs_path(current_user)%>
-</div>
-<div>
-  <%= link_to 'Pending Book Recs', user_book_recs_path(current_user) %> |
-  <%= link_to 'Completed Book Recs', completed_user_book_recs_path(current_user)%>
-</div>
+  <p>
+    Welcome, <%= current_user.first_name %> |
+    <%= link_to 'Log Out', logout_path %> |
+    <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+  </p>
+  <h1>Queue</h1>
+  <div>
+    <%= link_to 'Home', users_path %>
+  </div>
+  <div>
+    <%= link_to 'My Movie Recs', user_movie_recs_path(current_user) %> |
+    <%= link_to 'Completed Movie Recs', completed_user_movie_recs_path(current_user)%>
+  </div>
+  <div>
+    <%= link_to 'My Book Recs', user_book_recs_path(current_user) %> |
+    <%= link_to 'Completed Book Recs', completed_user_book_recs_path(current_user)%>
+  </div>
+  <div>
+    <%= link_to 'Sent Book Recs', sent_user_book_recs_path(current_user) %> |
+    <%= link_to 'Sent Movie Recs', sent_user_movie_recs_path(current_user)%>
+  </div>
+<% else %>
+  <h1>Queue</h1>
 <% end %>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: name %>
 <% end %>
 
-<h1>Queue</h1>
 
 <%= yield %>
 

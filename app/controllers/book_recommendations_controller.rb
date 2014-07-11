@@ -21,7 +21,7 @@ class BookRecommendationsController < ApplicationController
     book = BookRecommendation.create(book_recommendation_params)
     book.update(recommendor_id: current_user.id)
     if book.save
-      redirect_to book_recommendations_path
+      redirect_to users_path
     else
       render(:index)
     end
@@ -64,7 +64,7 @@ class BookRecommendationsController < ApplicationController
   def update
     @book_recommendation = BookRecommendation.find(params[:id])
     if @book_recommendation.update(book_recommendation_params)
-      redirect_to book_recommendations_path
+      redirect_to users_path
     else
       render(:edit)
     end

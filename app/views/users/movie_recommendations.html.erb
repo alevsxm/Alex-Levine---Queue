@@ -1,7 +1,7 @@
 <h2><%= @user.first_name %>'s Movie Recs</h2>
 
 <% @movies.each do |rec| %>
-  <% if rec.finished == FALSE %>
+  <% if rec.finished == false %>
     <img src="<%= rec.img_url %>">
     <ul>
       <li><%= rec.title %></li>
@@ -12,12 +12,11 @@
       <li><%= rec.media_type.capitalize %></li>
       <li><%= rec.rating %></li>
       <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
-      <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
       <li>Recommended On: <%= rec.created_at.to_s(:long) %></li>
     </ul>
     <%= rec.message %>
     <p>
-      <%= link_to "Mark as Watched", movie_rec_complete_path(@user) %> |
+      <%= link_to "Mark as Watched", movie_rec_complete_path(rec) %> |
       <%= link_to "I Just Can't Do It", movie_recommendation_path(rec), method: :delete %>
     </p>
     <hr>
