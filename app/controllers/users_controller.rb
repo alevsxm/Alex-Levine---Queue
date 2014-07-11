@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
     if @user.save
       session[:current_user] = @user.id
@@ -27,6 +26,26 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def movie_recommendations
+    @user = User.find(params[:id])
+    @movies = MovieRecommendation.where(recommendee_id: @user.id)
+  end
+
+  def completed_movie_recommendations
+    @user = User.find(params[:id])
+    @movies = MovieRecommendation.where(recommendee_id: @user.id)
+  end
+
+  def book_recommendations
+    @user = User.find(params[:id])
+    @books = BookRecommendation.where(recommendee_id: @user.id)
+  end
+
+  def completed_book_recommendations
+    @user = User.find(params[:id])
+    @books = BookRecommendation.where(recommendee_id: @user.id)
   end
 
   def update

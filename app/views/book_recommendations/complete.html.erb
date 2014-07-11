@@ -1,0 +1,13 @@
+<h2>How Was the Book?</h2>
+<p>Not finished yet? <%= link_to 'Back to Movie Recs', user_book_recs_path(@user) %></p>
+
+<%= form_for @book_rec do |f| %>
+<div>
+  <%= f.label :user_rating %>
+  <%= f.select :user_rating, (1..10) %>
+</div>
+<%= f.hidden_field :finished, :value => "TRUE" %>
+<div>
+<%= f.submit 'Submit Rating' %>
+</div>
+<% end %>

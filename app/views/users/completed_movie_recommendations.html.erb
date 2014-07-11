@@ -1,0 +1,22 @@
+<h2><%= @user.first_name %>'s Finished Movie Recs</h2>
+
+<% @movies.each do |rec| %>
+  <% if rec.finished == TRUE %>
+    <img src="<%= rec.img_url %>">
+    <ul>
+      <li><%= rec.title %></li>
+      <li><%= rec.director %></li>
+      <li><%= rec.actors %></li>
+      <li><%= rec.year_released %></li>
+      <li><%= rec.plot_summary %></li>
+      <li><%= rec.media_type.capitalize %></li>
+      <li><%= rec.rating %></li>
+      <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
+      <li>Recommended To: <%= User.find(rec.recommendee_id).first_name %></li>
+      <li>Finished On <%= rec.updated_at.to_s(:long) %></li>
+      <li>You rated this movie a <%= rec.user_rating %></li>
+    </ul>
+    <%= rec.message %>
+    <hr>
+  <% end %>
+<% end %>

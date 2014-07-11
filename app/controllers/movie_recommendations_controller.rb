@@ -21,26 +21,32 @@ class MovieRecommendationsController < ApplicationController
     movie = MovieRecommendation.create(movie_recommendation_params)
     movie.update(recommendor_id: current_user.id)
     if movie.save
-      redirect_to movie_recommendations_path
+      redirect_to movie_rec_message_path(movie)
     else
       render(:index)
     end
   end
 
-  def message
-    @movie_rec = Movie.Recommendation.find(params[:id])
-  end
   #
   # def new
   #   @movie_recommendation = MovieRecommendation.new
   #   @users = User.all
   # end
   #
-  # def show
-  #   @movie_recommendation = MovieRecommendation.find(params[:id])
-  #   @recommendee = User.find(@movie_recommendation.recommendee_id)
-  #   @recommendor = User.find(@movie_recommendation.recommendor_id)
-  # end
+  def show
+    @movie_recommendation = MovieRecommendation.find(params[:id])
+    @recommendee = User.find(@movie_recommendation.recommendee_id)
+    @recommendor = User.find(@movie_recommendation.recommendor_id)
+  end
+
+  def message
+    @movie_rec = MovieRecommendation.find(params[:id])
+  end
+
+  def complete
+    @movie_rec = MovieRecommendation.find(params[:id])
+    @user = User.find(@movie_rec.recommendee_id)
+  end
   #
   # def create
   #   @movie_recommendation = MovieRecommendation.new(movie_recommendation_params)
@@ -56,14 +62,14 @@ class MovieRecommendationsController < ApplicationController
   #   @users = User.all
   # end
   #
-  # def update
-  #   @movie_recommendation = MovieRecommendation.find(params[:id])
-  #   if @movie_recommendation.update(movie_recommendation_params)
-  #     redirect_to movie_recommendation_path(@movie_recommendation)
-  #   else
-  #     render(:edit)
-  #   end
-  # end
+  def update
+    @movie_recommendation = MovieRecommendation.find(params[:id])
+    if @movie_recommendation.update(movie_recommendation_params)
+      redirect_to users_path
+    else
+      render(:edit)
+    end
+  end
   #
   def destroy
     @movie_recommendation = MovieRecommendation.find(params[:id])

@@ -32,11 +32,20 @@ class BookRecommendationsController < ApplicationController
   #   @users = User.all
   # end
   #
-  # def show
-  #   @book_recommendation = BookRecommendation.find(params[:id])
-  #   @recommendee = User.find(@book_recommendation.recommendee_id)
-  #   @recommendor = User.find(@book_recommendation.recommendor_id)
-  # end
+  def show
+    @book_recommendation = BookRecommendation.find(params[:id])
+    @recommendee = User.find(@book_recommendation.recommendee_id)
+    @recommendor = User.find(@book_recommendation.recommendor_id)
+  end
+
+  def message
+    @book_rec = BookRecommendation.find(params[:id])
+  end
+
+  def complete
+    @book_rec = BookRecommendation.find(params[:id])
+    @user = User.find(@book_rec.recommendee_id)
+  end
   #
   # def create
   #   @book_recommendation = BookRecommendation.new(book_recommendation_params)
@@ -52,14 +61,14 @@ class BookRecommendationsController < ApplicationController
   #   @users = User.all
   # end
   #
-  # def update
-  #   @book_recommendation = BookRecommendation.find(params[:id])
-  #   if @book_recommendation.update(book_recommendation_params)
-  #     redirect_to book_recommendations_path
-  #   else
-  #     render(:edit)
-  #   end
-  # end
+  def update
+    @book_recommendation = BookRecommendation.find(params[:id])
+    if @book_recommendation.update(book_recommendation_params)
+      redirect_to book_recommendations_path
+    else
+      render(:edit)
+    end
+  end
 
   def destroy
     @book_recommendation = BookRecommendation.find(params[:id])
