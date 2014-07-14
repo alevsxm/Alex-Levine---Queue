@@ -42,10 +42,12 @@ gem 'awesome_print'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development do
+group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers', require: false
 end
 
 gem 'rails_12factor', group: :production
+
+gem 'paperclip'

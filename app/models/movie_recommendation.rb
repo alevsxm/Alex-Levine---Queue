@@ -1,8 +1,6 @@
 class MovieRecommendation < ActiveRecord::Base
-  has_one :recommendor, :class_name => "User",
-  :foreign_key => "recommendor_id"
-  has_one :recommendee, :class_name => "User",
-  :foreign_key => "recommendee_id"
+  belongs_to :recommendor, :class_name => "User"
+  belongs_to :recommendee, :class_name => "User"
 
   validates :title, :recommendee_id, presence: true
 end

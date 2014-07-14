@@ -7,11 +7,10 @@ class MovieRecommendationsController < ApplicationController
   end
 
   def search
-    @user = User.find(params[:user_id])
   end
 
   def results
-    @user = User.find(params[:user_id])
+    @recommendee = User.find(params[:user_id])
     @search = params[:title]
     @results = OMDB.search(@search)
     @movie = MovieRecommendation.new

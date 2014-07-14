@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'book_recommendations/:id/message'        =>  'book_recommendations#message', :as => :book_rec_message
   get 'book_recommendations/:id/complete'       =>  'book_recommendations#complete', :as => :book_rec_complete
 
+
+  # get 'users/recommendations/:type/:kind' => 'users#recommendations'
   get 'users/:id/movie_recommendations'            =>  'users#movie_recommendations', :as => :user_movie_recs
   get 'users/:id/completed_movie_recommendations'  =>  'users#completed_movie_recommendations', :as => :completed_user_movie_recs
   get 'users/:id/sent_movie_recommendations'       =>  'users#sent_movie_recommendations', :as => :sent_user_movie_recs

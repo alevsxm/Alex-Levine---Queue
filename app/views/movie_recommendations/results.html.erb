@@ -26,7 +26,7 @@
     <%= f.hidden_field :plot_summary, :value => result[:plot_summary] %>
     <%= f.hidden_field :rating, :value => result[:rating] %>
     <%= f.hidden_field :media_type, :value => result[:media_type] %>
-    <%= f.hidden_field :recommendee_id, :value => @user.id %>
+    <%= f.hidden_field :recommendee_id, :value => @recommendee.id %>
     <%= submit_tag("Recommend Movie") %>
   <% end %>
 </p>

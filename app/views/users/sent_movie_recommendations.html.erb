@@ -4,10 +4,10 @@
   <img src="<%= rec.img_url %>">
   <ul>
     <li><%= rec.title %></li>
-    <li><%= rec.director %></li>
-    <li><%= rec.actors %></li>
+    <li>Directed By: <%= rec.director %></li>
+    <li>Cast: <%= rec.actors %></li>
     <li><%= rec.year_released %></li>
-    <li><%= rec.plot_summary %></li>
+    <li>Summary: <%= rec.plot_summary %></li>
     <li><%= rec.media_type.capitalize %></li>
     <li>IMDB rating: <%= rec.rating %></li>
     <li>Recommended to: <%= User.find(rec.recommendee_id).first_name %></li>

@@ -1,10 +1,11 @@
 <h2>All Users</h2>
 <% @users.each do |user| %>
+<%= image_tag user.avatar.url(:medium) %>
   <ul>
     <li><%= user.username %></li>
     <li><%= user.first_name %> <%= user.last_name %></li>
     <li><%= user.email %></li>
-    <li><%= user.password_digest %></li>
+    <li><%= user.avg_rating %></li>
   </ul>
   <p>
   <%= link_to "Recommend Book to #{user.first_name}", "/book_recommendations/#{user.id}/search" %> |
