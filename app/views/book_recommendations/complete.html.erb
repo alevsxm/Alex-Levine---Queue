@@ -1,5 +1,5 @@
 <h2>How Was the Book?</h2>
-<p>Not finished yet? <%= link_to 'Back to Movie Recs', user_book_recs_path(@user) %></p>
+<p>Not finished yet? <%= link_to 'Back to Book Recs', "/users/#{current_user.id}/recommendations/book/received" %></p>
 
 <%= form_for @book_rec do |f| %>
 <div>

@@ -45,58 +45,39 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  # def recommendations
-  #   @user = User.find(params[:id])
-  #   case type
-  #   when "movie"
-  #     case kind
-  #     when "sent"
-  #       @movies = MovieRecommendation.where(recommendor_id: @user.id)
-  #       render 'sent_movie_recommendations'
-  #     when "recieved"
-  #       @recommendations = MovieRecommendation.where(recommendee_id: @user.id)
-  #     when "completed"
-  #       @recommendations = MovieRecommendation.where(recommendee_id: @user.id).completed
-  #     end
-  #   end
-  #   when "book"
-  #     case kind
-  #     when "sent"
-  #
-  #     when "received"
-  #
-  #     when "completed"
-  #   end
-  # end
-
-  def movie_recommendations
-    @user = User.find(params[:id])
-    @movies = MovieRecommendation.where(recommendee_id: @user.id)
+  def results
+    @search = params[:first_name]
+    @users = User.where(first_name: @search)
   end
 
-  def completed_movie_recommendations
+  def recommendations
     @user = User.find(params[:id])
-    @movies = MovieRecommendation.where(recommendee_id: @user.id)
-  end
-
-  def sent_movie_recommendations
-    @user = User.find(params[:id])
-    @movies = MovieRecommendation.where(recommendor_id: @user.id)
-  end
-
-  def book_recommendations
-    @user = User.find(params[:id])
-    @books = BookRecommendation.where(recommendee_id: @user.id)
-  end
-
-  def completed_book_recommendations
-    @user = User.find(params[:id])
-    @books = BookRecommendation.where(recommendee_id: @user.id)
-  end
-
-  def sent_book_recommendations
-    @user = User.find(params[:id])
-    @books = BookRecommendation.where(recommendor_id: @user.id)
+    case params[:type]
+    when "movie"
+      case params[:kind]
+      when "sent"
+        @movies = MovieRecommendation.where(recommendor_id: @user.id)
+        render :sent_movie_recommendations
+      when "received"
+        @movies = MovieRecommendation.where(recommendee_id: @user.id)
+        render :movie_recommendations
+      when "completed"
+        @movies = MovieRecommendation.where(recommendee_id: @user.id)
+        render :completed_movie_recommendations
+      end
+    when "book"
+      case params[:kind]
+      when "sent"
+        @books = BookRecommendation.where(recommendee_id: @user.id)
+        render :sent_book_recommendations
+      when "received"
+        @books = BookRecommendation.where(recommendee_id: @user.id)
+        render :book_recommendations
+      when "completed"
+        @books = BookRecommendation.where(recommendee_id: @user.id)
+        render :completed_book_recommendations
+      end
+    end
   end
 
   private

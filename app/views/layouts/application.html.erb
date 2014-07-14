@@ -19,16 +19,16 @@
     <%= link_to 'Home', users_path %>
   </div>
   <div>
-    <%= link_to 'My Movie Recs', user_movie_recs_path(current_user) %> |
-    <%= link_to 'Completed Movie Recs', completed_user_movie_recs_path(current_user)%>
+    <%= link_to 'My Movie Recs', "/users/#{current_user.id}/recommendations/movie/received" %> |
+    <%= link_to 'Completed Movie Recs', "/users/#{current_user.id}/recommendations/movie/completed" %>
   </div>
   <div>
-    <%= link_to 'My Book Recs', user_book_recs_path(current_user) %> |
-    <%= link_to 'Completed Book Recs', completed_user_book_recs_path(current_user)%>
+    <%= link_to 'My Book Recs', "/users/#{current_user.id}/recommendations/book/received" %> |
+    <%= link_to 'Completed Book Recs', "/users/#{current_user.id}/recommendations/book/completed" %>
   </div>
   <div>
-    <%= link_to 'Sent Book Recs', sent_user_book_recs_path(current_user) %> |
-    <%= link_to 'Sent Movie Recs', sent_user_movie_recs_path(current_user)%>
+    <%= link_to 'Sent Book Recs', "/users/#{current_user.id}/recommendations/book/sent" %> |
+    <%= link_to 'Sent Movie Recs', "/users/#{current_user.id}/recommendations/movie/sent" %>
   </div>
 <% else %>
   <h1>Queue</h1>

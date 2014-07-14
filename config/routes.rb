@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   get 'book_recommendations/:id/complete'       =>  'book_recommendations#complete', :as => :book_rec_complete
 
 
-  # get 'users/recommendations/:type/:kind' => 'users#recommendations'
-  get 'users/:id/movie_recommendations'            =>  'users#movie_recommendations', :as => :user_movie_recs
-  get 'users/:id/completed_movie_recommendations'  =>  'users#completed_movie_recommendations', :as => :completed_user_movie_recs
-  get 'users/:id/sent_movie_recommendations'       =>  'users#sent_movie_recommendations', :as => :sent_user_movie_recs
-  get 'users/:id/book_recommendations'             =>  'users#book_recommendations', :as => :user_book_recs
-  get 'users/:id/completed_book_recommendations'   =>  'users#completed_book_recommendations', :as => :completed_user_book_recs
-  get 'users/:id/sent_book_recommendations'        =>  'users#sent_book_recommendations', :as => :sent_user_book_recs
+  get 'users/:id/recommendations/:type/:kind' => 'users#recommendations'
+  get 'users/results'                         => 'users#results', :as => :users_results
+  # get 'users/:id/movie_recommendations'            =>  'users#movie_recommendations', :as => :user_movie_recs
+  # get 'users/:id/completed_movie_recommendations'  =>  'users#completed_movie_recommendations', :as => :completed_user_movie_recs
+  # get 'users/:id/sent_movie_recommendations'       =>  'users#sent_movie_recommendations', :as => :sent_user_movie_recs
+  # get 'users/:id/book_recommendations'             =>  'users#book_recommendations', :as => :user_book_recs
+  # get 'users/:id/completed_book_recommendations'   =>  'users#completed_book_recommendations', :as => :completed_user_book_recs
+  # get 'users/:id/sent_book_recommendations'        =>  'users#sent_book_recommendations', :as => :sent_user_book_recs
 
   resources :users
   resources :movie_recommendations
