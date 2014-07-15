@@ -1,8 +1,16 @@
+
+<div class="container">
+
 <h2><%= @user.first_name %>'s Book Recs</h2>
 
+<div class="recommendation">
 <% @books.each do |rec| %>
+<div class="rec-image">
   <% if rec.finished == false %>
+
     <img src="<%= rec.img_url %>">
+</div>
+<div class="rec-info">
     <ul>
       <li><%= rec.title %></li>
       <li>Author: <%= rec.author %></li>
@@ -17,6 +25,9 @@
       <%= link_to "Mark as Read", book_rec_complete_path(@user) %> |
       <%= link_to "I Just Can't Do It", book_recommendation_path(rec), method: :delete %>
     </p>
+  </div>
     <hr>
   <% end %>
 <% end %>
+
+</div> <!-- Container Ends here -->

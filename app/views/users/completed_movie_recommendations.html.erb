@@ -1,21 +1,33 @@
-<h2><%= @user.first_name %>'s Finished Movie Recs</h2>
-<hr>
-<% @movies.each do |rec| %>
-  <% if rec.finished == true %>
-    <img src="<%= rec.img_url %>">
-    <ul>
-      <li><%= rec.title %></li>
-      <li>Directed By: <%= rec.director %></li>
-      <li>Cast: <%= rec.actors %></li>
-      <li><%= rec.year_released %></li>
-      <li>Summary: <%= rec.plot_summary %></li>
-      <li><%= rec.media_type.capitalize %></li>
-      <li>IMDb Rating: <%= rec.rating %></li>
-      <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
-      <li>Finished On <%= rec.updated_at.to_s(:long) %></li>
-      <li>You rating for this movie: <%= rec.user_rating %></li>
-    </ul>
-    <%= rec.message %>
-    <hr>
-  <% end %>
-<% end %>
+<div class="container">
+
+  <h2><%= @user.first_name %>'s Finished Movie Recs</h2>
+  <hr>
+
+  <div class="recommendation">
+
+    <% @movies.each do |rec| %>
+      <% if rec.finished == true %>
+    <div class="rec-image">
+      <img src="<%= rec.img_url %>">
+    </div>
+    <div class="rec-info">
+        <ul>
+          <li><%= rec.title %></li>
+          <li>Directed By: <%= rec.director %></li>
+          <li>Cast: <%= rec.actors %></li>
+          <li><%= rec.year_released %></li>
+          <li>Summary: <%= rec.plot_summary %></li>
+          <li><%= rec.media_type.capitalize %></li>
+          <li>IMDb Rating: <%= rec.rating %></li>
+          <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
+          <li>Finished On <%= rec.updated_at.to_s(:long) %></li>
+          <li>You rating for this movie: <%= rec.user_rating %></li>
+        </ul>
+        <%= rec.message %>
+      </div>
+        <hr>
+      <% end %>
+    <% end %>
+  </div>
+
+</div> <!-- Container Ends here -->

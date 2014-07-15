@@ -1,8 +1,15 @@
+<div class="container">
+
 <h2><%= @user.first_name %>'s Movie Recs</h2>
+
+<div class="recommendation">
 
 <% @movies.each do |rec| %>
   <% if rec.finished == false %>
+<div class="rec-image">
     <img src="<%= rec.img_url %>">
+</div>
+<div class="rec-info">
     <ul>
       <li><%= rec.title %></li>
       <li>Directed By: <%= rec.director %></li>
@@ -19,6 +26,10 @@
       <%= link_to "Mark as Watched", movie_rec_complete_path(rec) %> |
       <%= link_to "I Just Can't Do It", movie_recommendation_path(rec), method: :delete %>
     </p>
+  </div>
     <hr>
   <% end %>
 <% end %>
+</div>
+
+</div> <!-- Container Ends here -->

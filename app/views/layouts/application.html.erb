@@ -8,16 +8,20 @@
 </head>
 <body>
 
+<header class="sixteen columns">
 <% if current_user %>
-  <p>
-    Welcome, <%= current_user.first_name %> |
-    <%= link_to 'Log Out', logout_path %> |
-    <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-  </p>
-  <h1>Queue</h1>
-  <div>
-    <%= link_to 'Home', users_path %>
-  </div>
+  <h1 class="six columns alpha">Queue</h1>
+  <nav class="ten columns omega">
+    <ul>
+      <li>Welcome, <%= current_user.first_name %></li>
+      <li><%= link_to 'Log Out', logout_path %></li>
+      <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+      <li><%= link_to 'Home', users_path %></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
   <div>
     <%= link_to 'My Movie Recs', "/users/#{current_user.id}/recommendations/movie/received" %> |
     <%= link_to 'Completed Movie Recs', "/users/#{current_user.id}/recommendations/movie/completed" %>
@@ -38,8 +42,9 @@
   <%= content_tag :div, msg, class: name %>
 <% end %>
 
-
+</div> <!--End of container -->
 <%= yield %>
+
 
 </body>
 </html>

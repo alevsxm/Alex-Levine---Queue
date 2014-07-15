@@ -1,9 +1,17 @@
+<div class="container">
+
 <h2><%= @user.first_name %>'s Finished Book Recs</h2>
 
 <hr>
+
+<div class="recommendation">
+
 <% @books.each do |rec| %>
+<div class="rec-image">
   <% if rec.finished == true %>
     <img src="<%= rec.img_url %>">
+</div>
+<div class="rec-info">
     <ul>
       <li><%= rec.title %></li>
       <li>Author: <%= rec.author %></li>
@@ -15,6 +23,10 @@
       <li>You rated this book a <%= rec.user_rating %></li>
     </ul>
     <%= rec.message %>
+  </div>
     <hr>
   <% end %>
 <% end %>
+</div>
+
+</div> <!-- Container Ends here -->
