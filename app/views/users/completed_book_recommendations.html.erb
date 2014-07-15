@@ -1,32 +1,32 @@
 <div class="container">
 
-<h2><%= @user.first_name %>'s Finished Book Recs</h2>
+  <h2><%= @user.first_name %>'s Finished Book Recs</h2>
 
-<hr>
+  <hr>
 
-<div class="recommendation">
+  <div class="recommendation">
 
-<% @books.each do |rec| %>
-<div class="rec-image">
-  <% if rec.finished == true %>
-    <img src="<%= rec.img_url %>">
-</div>
-<div class="rec-info">
-    <ul>
-      <li><%= rec.title %></li>
-      <li>Author: <%= rec.author %></li>
-      <li><%= rec.year_published %></li>
-      <li><%= rec.plot_summary %></li>
-      <li>Google Book Rating: <%= rec.rating %></li>
-      <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
-      <li>Finished On: <%= rec.created_at.to_s(:long) %></li>
-      <li>You rated this book a <%= rec.user_rating %></li>
-    </ul>
-    <%= rec.message %>
+    <% @books.each do |rec| %>
+      <% if rec.finished == true %>
+    <div class="rec-image">
+      <img src="<%= rec.img_url %>">
+    </div>
+    <div class="rec-info">
+      <ul>
+        <li><%= rec.title %></li>
+        <li>Author: <%= rec.author %></li>
+        <li><%= rec.year_published %></li>
+        <li>Summary: <%= rec.plot_summary %></li>
+        <li>Google Book Rating: <%= rec.rating %></li>
+        <li>Recommended By: <%= User.find(rec.recommendor_id).first_name %></li>
+        <li>Finished On: <%= rec.created_at.to_s(:long) %></li>
+        <li>You rated this book a <%= rec.user_rating %></li>
+      </ul>
+      <%= rec.message %>
+      </div>
+      <hr>
+      <% end %>
+    <% end %>
   </div>
-    <hr>
-  <% end %>
-<% end %>
-</div>
 
 </div> <!-- Container Ends here -->

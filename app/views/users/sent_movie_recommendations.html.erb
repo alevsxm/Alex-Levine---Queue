@@ -1,35 +1,35 @@
 <div class="container">
 
-<h2><%= @user.first_name %>'s Sent Movie Recs</h2>
+  <h2><%= @user.first_name %>'s Sent Movie Recs</h2>
 
-<div class="recommendation">
+  <div class="recommendation">
 
-<% @movies.each do |rec| %>
-  <div class="rec-image">
-  <img src="<%= rec.img_url %>">
-  </div>
-  <div class="rec-info">
-  <ul>
-    <li><%= rec.title %></li>
-    <li>Directed By: <%= rec.director %></li>
-    <li>Cast: <%= rec.actors %></li>
-    <li><%= rec.year_released %></li>
-    <li>Summary: <%= rec.plot_summary %></li>
-    <li><%= rec.media_type.capitalize %></li>
-    <li>IMDB rating: <%= rec.rating %></li>
-    <li>Recommended to: <%= User.find(rec.recommendee_id).first_name %></li>
-    <li>Finished? <%= rec.finished.to_s.capitalize %></li>
-    <% if rec.finished == true %>
-      <li>Finished On <%= rec.updated_at.to_s(:long) %></li>
-      <li>YOUR FRIEND rated this movie a <%= rec.user_rating %></li>
-    <% else %>
-      <li>Recommended On <%= rec.created_at.to_s(:long) %></li>
+    <% @movies.each do |rec| %>
+      <div class="rec-image">
+        <img src="<%= rec.img_url %>">
+      </div>
+      <div class="rec-info">
+        <ul>
+          <li><%= rec.title %></li>
+          <li>Directed By: <%= rec.director %></li>
+          <li>Cast: <%= rec.actors %></li>
+          <li><%= rec.year_released %></li>
+          <li>Summary: <%= rec.plot_summary %></li>
+          <li><%= rec.media_type.capitalize %></li>
+          <li>IMDB rating: <%= rec.rating %></li>
+          <li>Recommended to: <%= User.find(rec.recommendee_id).first_name %></li>
+          <li>Finished? <%= rec.finished.to_s.capitalize %></li>
+          <% if rec.finished == true %>
+            <li>Finished On <%= rec.updated_at.to_s(:long) %></li>
+            <li>YOUR FRIEND rated this movie a <%= rec.user_rating %></li>
+          <% else %>
+            <li>Recommended On <%= rec.created_at.to_s(:long) %></li>
+          <% end %>
+        </ul>
+        <%= rec.message %>
+      </div>
+      <hr>
     <% end %>
-  </ul>
-  <%= rec.message %>
   </div>
-  <hr>
-<% end %>
-</div>
 
 </div> <!-- Container Ends here -->

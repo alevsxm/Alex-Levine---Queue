@@ -54,10 +54,14 @@ header li {
 }
 
 .container {
-  width: 75%;
+  width: 70%;
   margin: 0 auto;
   background-color: white;
   padding-bottom: 2em;
+}
+
+.form {
+  text-align: center;
 }
 
 .container h2 {
@@ -67,7 +71,6 @@ header li {
 .recommendation {
   width: 100%;
   padding: 2em 0;
-  border-bottom: 1px solid black;
 }
 
 .recommendation h2 {
@@ -95,4 +98,8 @@ header li {
 
 .rec-info li {
   line-height: 1.3;
+}
+
+img {
+  max-height: 250px;
 }
