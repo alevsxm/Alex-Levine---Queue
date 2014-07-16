@@ -20,8 +20,9 @@ class BookRecommendationsController < ApplicationController
   def create
     book = BookRecommendation.create(book_recommendation_params)
     book.update(recommendor_id: current_user.id)
+    binding.pry
     if book.save
-      redirect_to users_path
+      redirect_to book_rec_message_path(book)
     else
       render(:index)
     end

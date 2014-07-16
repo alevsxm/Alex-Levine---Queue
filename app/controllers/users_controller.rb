@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     when "book"
       case params[:kind]
       when "sent"
-        @books = BookRecommendation.where(recommendee_id: @user.id)
+        @books = BookRecommendation.where(recommendor_id: @user.id)
         render :sent_book_recommendations
       when "received"
         @books = BookRecommendation.where(recommendee_id: @user.id)
