@@ -1,7 +1,11 @@
 == README
 
+User Stories -->
+
 https://trello.com/b/M0TA1ILO/alex-levine-queue
 
+Link to ERD (I put it on Flickr)
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+https://www.flickr.com/photos/upload/
+
+My account name is spikefever33.  Should be viewable let me know if you have any issues.

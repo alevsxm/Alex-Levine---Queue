@@ -1,4 +1,4 @@
-<div class="container">
+
 
   <h3>Search Again</h3>
   <%= form_tag(books_results_path, method: :get) do |f| %>
@@ -7,12 +7,11 @@
   <% end %>
 
   <h3>Results</h3>
-  <div class="recommendation">
+
     <% @results.each do |result| %>
-    <div class="rec-image">
+
       <img src= "<%= result[:img_url] %>">
-    </div>
-    <div class="rec-info">
+
       <ul>
         <li><%= result[:title] %></li>
         <li>Author: <%= result[:author] %></li>
@@ -30,9 +29,5 @@
         <%= f.hidden_field :recommendee_id, :value => @user.id %>
         <%= submit_tag("Recommend This Book!") %>
       <% end %>
-      </div>
       <hr>
     <% end %>
-  </div>
-
-</div> <!-- Container Ends here -->
